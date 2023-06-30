@@ -117,7 +117,7 @@ public class ReactNativeGoogleMobileAdsBannerAdViewManager
       }
     }
 
-    if (sizeList.size() > 0  && !sizeList.contains(AdSize.FLUID)) {
+    if (sizeList.size() > 0 && !sizeList.contains(AdSize.FLUID)) {
       AdSize adSize = sizeList.get(0);
       WritableMap payload = Arguments.createMap();
       payload.putDouble("width", adSize.getWidth());
@@ -226,14 +226,12 @@ public class ReactNativeGoogleMobileAdsBannerAdViewManager
       return;
     }
 
-    isFluid = sizes.contains(AdSize.FLUID);
-
     BaseAdView adView = initAdView(reactViewGroup);
     adView.setAdUnitId(unitId);
 
     reactViewGroup.setIsFluid(false);
     if (adView instanceof AdManagerAdView) {
-      if (isFluid) {
+      if (sizes.contains(AdSize.FLUID)) {
         reactViewGroup.setIsFluid(true);
         ((AdManagerAdView) adView).setAdSizes(AdSize.FLUID);
       } else {
