@@ -568,3 +568,6 @@ website/public
 
 # generated files by bob
 lib/
+
+# npm registry
+.npmrc

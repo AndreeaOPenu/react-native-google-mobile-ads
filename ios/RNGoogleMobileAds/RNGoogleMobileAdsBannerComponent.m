@@ -37,6 +37,12 @@
   if ([RNGoogleMobileAdsCommon isAdManagerUnit:_unitId]) {
     _banner = [[GAMBannerView alloc] initWithAdSize:adSize];
 
+    if(GADAdSizeEqualToSize(adSize,GADAdSizeFluid)) {
+      _banner.frame = self.bounds;
+      _banner.autoresizingMask = (UIViewAutoresizingFlexibleWidth);
+    }
+
+
     ((GAMBannerView *)_banner).validAdSizes = _sizes;
     ((GAMBannerView *)_banner).appEventDelegate = self;
     ((GAMBannerView *)_banner).enableManualImpressions = [_manualImpressionsEnabled boolValue];

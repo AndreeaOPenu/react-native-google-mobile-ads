@@ -117,8 +117,7 @@ export const BaseAd = React.forwardRef<GoogleMobileAdsBannerView, GAMBannerAdPro
 
     const style = sizes.includes(GAMBannerAdSize.FLUID)
       ? {
-          width: '100%',
-          height: dimensions[1],
+          flex: 1,
         }
       : {
           width: dimensions[0],
