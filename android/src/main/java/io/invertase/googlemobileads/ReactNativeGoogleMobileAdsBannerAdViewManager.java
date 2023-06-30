@@ -38,7 +38,6 @@ import com.google.android.gms.ads.BaseAdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.admanager.AdManagerAdView;
 import com.google.android.gms.ads.admanager.AppEventListener;
-import io.invertase.googlemobileads.common.ReactNativeAdView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -137,7 +136,7 @@ public class ReactNativeGoogleMobileAdsBannerAdViewManager
   }
 
   @Override
-  public void onAfterUpdateTransaction(@NonNull ReactNativeAdView reactViewGroup) {
+  public void onAfterUpdateTransaction(@NonNull LayoutWrapper reactViewGroup) {
     super.onAfterUpdateTransaction(reactViewGroup);
     if (reactViewGroup.getPropsChanged()) {
       requestAd(reactViewGroup);
