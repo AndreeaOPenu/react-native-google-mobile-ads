@@ -174,7 +174,7 @@ public class ReactNativeGoogleMobileAdsBannerAdViewManager
         public void onAdLoaded() {
           reactViewGroup.requestLayout();
 
-          if(isFluid) return;
+          if(reactViewGroup.getIsFluid()) return;
 
           AdSize adSize = adView.getAdSize();
           WritableMap payload = Arguments.createMap();
