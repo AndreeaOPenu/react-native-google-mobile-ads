@@ -119,7 +119,7 @@ public class ReactNativeGoogleMobileAdsBannerAdViewManager
       }
     }
 
-    if (sizeList.size() > 0) {
+    if (sizeList.size() > 0 && !sizeList.contains(AdSize.FLUID)) {
       AdSize adSize = sizeList.get(0);
       WritableMap payload = Arguments.createMap();
       payload.putDouble("width", adSize.getWidth());
@@ -173,21 +173,21 @@ public class ReactNativeGoogleMobileAdsBannerAdViewManager
           @Override
           public void onAdLoaded() {
             AdSize adSize = adView.getAdSize();
-            int left, top, width, height;
-            if (reactViewGroup.getIsFluid()) {
-              // TODO size=FLUID is still not working
-              left = 0;
-              top = 0;
-              width = reactViewGroup.getWidth();
-              height = reactViewGroup.getHeight();
-            } else {
-              left = adView.getLeft();
-              top = adView.getTop();
-              width = adSize.getWidthInPixels(reactViewGroup.getContext());
-              height = adSize.getHeightInPixels(reactViewGroup.getContext());
+
+            int left = adView.getLeft();
+            int top = adView.getTop();
+            int width = adSize.getWidthInPixels(reactViewGroup.getContext());
+            int height = adSize.getHeightInPixels(reactViewGroup.getContext());
+        
+            adView.measure(
+              MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY),
+              MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
+            ladView.ayout(left, top, left + width, top + height);
+
+
+            if(reactViewGroup.getIsFluid()){
+              return;
             }
-            adView.measure(width, height);
-            adView.layout(left, top, left + width, top + height);
 
             WritableMap payload = Arguments.createMap();
             payload.putDouble("width", PixelUtil.toDIPFromPixel(width));
