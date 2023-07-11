@@ -24,7 +24,7 @@ import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
-import com.facebook.react.views.view.ReactViewGroup;
+import io.invertase.googlemobileads.common.ReactNativeAdView;
 import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
 
 public class ReactNativeGoogleMobileAdsCommon {
 
-  static AdSize getAdSizeForAdaptiveBanner(String preDefinedAdSize, ReactViewGroup reactViewGroup) {
+  static AdSize getAdSizeForAdaptiveBanner(String preDefinedAdSize, ReactNativeAdView reactViewGroup) {
 
     try {
       Display display =
@@ -63,7 +63,7 @@ public class ReactNativeGoogleMobileAdsCommon {
     }
   }
 
-  static AdSize getAdSize(String preDefinedAdSize, ReactViewGroup reactViewGroup) {
+  static AdSize getAdSize(String preDefinedAdSize, ReactNativeAdView reactViewGroup) {
     if (preDefinedAdSize.matches(
         "ADAPTIVE_BANNER|ANCHORED_ADAPTIVE_BANNER|INLINE_ADAPTIVE_BANNER")) {
       return ReactNativeGoogleMobileAdsCommon.getAdSizeForAdaptiveBanner(
