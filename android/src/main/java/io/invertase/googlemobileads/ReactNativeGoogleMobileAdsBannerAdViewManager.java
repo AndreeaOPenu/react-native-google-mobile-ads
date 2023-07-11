@@ -179,11 +179,13 @@ public class ReactNativeGoogleMobileAdsBannerAdViewManager
             int width = adSize.getWidthInPixels(reactViewGroup.getContext());
             int height = adSize.getHeightInPixels(reactViewGroup.getContext());
         
-            adView.measure(
-              MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY),
-              MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
-            adView.layout(left, top, left + width, top + height);
+            // adView.measure(
+            //   MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY),
+            //   MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
+            // adView.layout(left, top, left + width, top + height);
 
+            adView.measure(width, height);
+            adView.layout(left, top, left + width, top + height);
 
             if(reactViewGroup.getIsFluid()){
               return;
