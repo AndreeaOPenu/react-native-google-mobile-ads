@@ -201,7 +201,7 @@ public class ReactNativeGoogleMobileAdsBannerAdViewManager
           sendEvent(reactViewGroup, EVENT_AD_CLOSED, null);
         }
       }
-    )
+    );
     if (adView instanceof AdManagerAdView) {
       ((AdManagerAdView) adView)
           .setAppEventListener(
@@ -218,7 +218,7 @@ public class ReactNativeGoogleMobileAdsBannerAdViewManager
     reactViewGroup.addView(adView);
     return adView;
   }
-  
+
   private void requestAd(ReactNativeAdView reactViewGroup) {
     String unitId = reactViewGroup.getUnitId();
     List<AdSize> sizes = reactViewGroup.getSizes();

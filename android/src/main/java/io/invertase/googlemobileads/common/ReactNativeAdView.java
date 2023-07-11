@@ -6,16 +6,11 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import java.util.List;
 
-package io.invertase.googlemobileads;
-
-import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.UIManagerModule;
-import com.facebook.react.views.view.ReactViewGroup;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.BaseAdView;
 
 public class ReactNativeAdView extends FrameLayout {
@@ -27,10 +22,6 @@ public class ReactNativeAdView extends FrameLayout {
   private boolean manualImpressionsEnabled;
   private boolean propsChanged;
   private boolean isFluid;
-
-  public LayoutWrapper(Context context) {
-    super(context);
-  }
 
   @Override
   public void requestLayout() {
